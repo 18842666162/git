@@ -1,0 +1,53 @@
+extends ./template/layout.pug
+
+
+block custom_header
+	// --------------- Header -------------- //
+	script(src='/js/ui_building.js?v=' + bag.jshash)
+	script(src='/js/ui_events.js?v=' + bag.jshash)
+	script(src='/js/websocket.js?v=' + bag.jshash)
+	script(src='/js/startup.js?v=' + bag.jshash)
+	script(src='/js/tx_story.js?v=' + bag.jshash)
+	script(type='text/javascript').
+		$(document).ready(function(){
+			$('#auditWrap').append('<ul class="liebiao"><li class="zclb">资 产 列 表</li><li class="zcjy">资 产 交 易</li><li class="zccj">资 产 创 建</li><li class="zcsc">交 易 市 场</li></ui>');
+			$("#leftButton").click(function(){
+				$('#rightEverything').addClass('rightEverythingOpened');
+				$('#leftEverything').fadeIn();
+			});
+			$('.zclb').click(function(){
+				$('#contentPanel').html(bulid_user_zclb(soData));
+			});
+			$('.zcjy').click(function(){
+				$('#contentPanel').html(bulid_user_zcjy(soData));
+			});
+			$('.zccj').click(function(){
+				$('#contentPanel').html(bulid_user_zccj(soData));
+			});
+			$('.zcsc').click(function(){
+				$('#contentPanel').html(bulid_user_jysc(soData));
+			});
+		});
+
+
+block navpanel
+	// --------------- Navigation Bar  -------------- //
+	include ./template/nav.pug
+
+
+block content
+	// --------------- Main Stuff  -------------- //
+	#notificationsWrap
+		#noticeScrollWrap
+			#emptyNotifications.hint No Notifications
+		#notificationHandle
+			span.fa.fa-angle-down
+
+	#leftButton
+		span.fa.fa-star
+
+	#contentPanel
+
+
+block footer
+	include ./template/blockchain.pug

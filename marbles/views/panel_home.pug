@@ -1,0 +1,40 @@
+#homePanel.panel
+	div
+		#tips
+			span 温馨提示: 只需拖动
+			span 就可以将一个用户的货物交易到另一个用户下
+
+		#ownerWrap
+			div#toolbarWrap
+				.bottomAlign
+					input(type="text" placeholder="搜索用户" style="margin-left: 0; border-radius:2px;")#searchUsers.longer
+					span.hint(style="margin-left: 10px; font-size: 16px;")
+						span#foundUsers 0
+						span /
+						span#totalUsers 0
+
+				button(disabled="disabled")#showStartupPanel
+					span.fa.fa-gears
+					span &nbsp; 添加用户
+
+				span &nbsp;&nbsp;
+
+				button(disabled="disabled")#showSettingsPanel
+					span.fa.fa-gear
+					span &nbsp; 设 置
+
+				span &nbsp;&nbsp;
+
+				button(disabled="disabled")#posi
+					span.fa.fa-gear
+					span &nbsp; 职位分配
+
+				#trashbin.sortable.innerMarbleWrap
+					div.fa.fa-trash-o.fa-3x(style="vertical-align: middle;")
+					span &nbsp;
+					div#trashText 请把要删除的货物拖到此处
+
+
+
+		#allUserPanelsWrap
+			#appStartingText 加载中...

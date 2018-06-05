@@ -1,0 +1,84 @@
+extends ./template/layout.pug
+
+
+block custom_header
+	// --------------- Header --------------
+	script(src='/js/ui_events.js?v=' + bag.jshash)
+	script(src='/js/websocket.js?v=' + bag.jshash)
+	script(src='/js/startup.js?v=' + bag.jshash)
+	script(src='/js/tx_story.js?v=' + bag.jshash)
+	script(type='text/javascript').
+		$(document).ready(function(){
+			$('input[type="radio"]').attr("checked",false);
+		});
+
+
+block navpanel
+	// --------------- Navigation Bar  -------------- //
+	include ./template/nav.pug
+
+
+block content
+	// --------------- Main Stuff  -------------- //
+	#notificationWrap
+
+	#contentPanel
+
+		// --------------- Welcome Panel
+		#welcomePanel
+			h2(style="font-weight: 600;") 易货物品交易演示应用
+
+			#adminText
+				span 大家好
+
+			p
+				span 该应用允许您在这个平台上进行简单的交易操作。
+				span 可以链接多个群体的用户进行大规模交易。
+				span 在这个应用程序中，您可以:
+
+			#split1x3Wrap
+				.split1x3
+					.welcomeTitle
+						span 交易
+						//br
+							span Assets
+					br
+					.blub1x3 在易货用户群中进行货物传输
+					img(src="/imgs/welcome_img1.png").welcomeImg
+				.split1x3
+					.welcomeTitle
+						span 添加
+						//br
+							span Marbles
+					br
+					.blub1x3 &nbsp;&nbsp;&nbsp;&nbsp;添加您的货物&nbsp;&nbsp;&nbsp;&nbsp;
+					img(src="/imgs/welcome_img2.png").welcomeImg
+				.split1x3
+					.welcomeTitle
+						span 效验
+						//br
+							span Ownership
+					br
+					.blub1x3 对您进行的每比交易进行效验
+					img(src="/imgs/welcome_img3.png").welcomeImg
+			br
+			br
+
+			p
+				span
+				span.
+
+
+		// --------------- Login Panel
+		form#loginPanel(method="POST" action="#")
+			p 进入
+			hr
+			input(type="radio" name="position" value="0" checked="false")
+			span 管理员登陆
+			br
+			input(type="radio" name="position" value="1" checked="false")
+			span 审计员登陆
+			br
+			input(type="text" placeholder="username" value="admin" name="username")
+			input(type="password" placeholder="password" value="" name="password")
+			button(type="submit" id="login" class="denglu" disabled="disabled") 登入

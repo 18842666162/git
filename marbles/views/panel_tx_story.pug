@@ -1,0 +1,80 @@
+#txStoryPanel
+
+	span.fa.fa-close.closeTxStory#closeTxStoryPos
+
+	//----------------- Step 1 Content
+	.txStepWrap#txStep1.inactiveStep
+		.txStatusWrap
+			.txStatus
+		.txLegend 创建请求
+		.txStoryWrap
+			.marbleWrap
+				div.ball#proposeMarbleStable.hideBorders.leftPos(title="Your marble tx")
+				div.ball#proposeMarble.hideBorders.leftPos
+				div.ball#marbleBorderTop.leftPos
+				div.ball#marbleBorderBottom.leftPos
+				div.ball#marbleBorderLeft.leftPos
+				div.ball#marbleBorderRight.leftPos
+		.txDescription
+			span 调用需要签名并打包为提案。
+			span 这是在易货应用程序中完成的。
+
+	//----------------- Step 2 Content
+	.txStepWrap#txStep2.inactiveStep
+		.txStatusWrap
+			.txStatus
+		.txLegend 进行许可
+		.txStoryWrap
+			.marbleWrap
+				div.ball#endorseMarbleStable(title="Your marble tx")
+					span.fa.fa-check
+				div.ball#endorseMarble
+					span.fa.fa-check
+		.txDescription
+			span 接下来，我们将交易建议发送给我们的同行进行认可。
+			span 同行将模拟交易，验证提案，然后签署提案。
+			span 然后它被送回给易货。
+
+	//----------------- Step 3 Content
+	.txStepWrap#txStep3.inactiveStep
+		.txStatusWrap
+			.txStatus
+		.txLegend 排序
+		.txStoryWrap
+			#orderBoxStable
+				span.ball.ordererMarbles.hideMe(title="Another marble tx")
+					span.fa.fa-check
+				span.ball.ordererMarbles.hideMe(title="Your marble tx")
+					span.fa.fa-check
+				span.ball.ordererMarbles.hideMe(title="Another marble tx")
+					span.fa.fa-check
+				#orderBox Block
+		.txDescription
+			span 然后，易货将把我们认可的提案发给订货人。
+			span 订货人将对包括我们在内的整个网络的交易进行排序。
+
+	//----------------- Step 4 Content
+	.txStepWrap#txStep4.inactiveStep
+		.txStatusWrap
+			.txStatus
+		.txLegend Validate & Commit
+		.txStoryWrap
+			#commitBoxStable(title="Block")
+				span.fa.fa-search
+		.txDescription
+			span 包含我们交易的块从订购者发送给我们的同行。
+			span  最后它由同伴验证，然后提交给同行的分类帐。
+
+	div
+		.hint * 请注意，为了演示目的，此过程的速度变慢了
+
+	#txStoryErrorWrap
+		span.fa.fa-warning(style="fill: #000;")
+		span#txStoryErrorTxt &nbsp;
+
+	//----------------- All done
+	.stepHelpWrap#doneTxStep
+		h2 Invoke Complete
+		br
+		br
+		button(type="button").closeTxStory Close
